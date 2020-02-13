@@ -47,6 +47,10 @@ namespace Mirror.Examples.Chat
 
             // set it as the player
             NetworkServer.AddPlayerForConnection(connection, playergo);
+
+            //playergo.GetComponent<Player>().CmdReadChatHistory();
+            //NetworkClient.connection.identity.GetComponent<Player>().CmdReadChatHistory();
+            //StartCoroutine(ReadChatHistory());
         }
     }
 }

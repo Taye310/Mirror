@@ -12,6 +12,13 @@ namespace Mirror.Examples.Chat
         public Text chatHistory;
         public Scrollbar scrollbar;
 
+        public void OnShowHistory()
+        {
+            // get our player
+            Player player = NetworkClient.connection.identity.GetComponent<Player>();
+            player.CmdReadChatHistory();
+        }
+
         public void OnSend()
         {
             if (chatMessage.text.Trim() == "") return;
@@ -21,6 +28,7 @@ namespace Mirror.Examples.Chat
 
             // send a message
             player.CmdSend(chatMessage.text.Trim());
+            player.CmdSaveChatHistory(chatMessage.text.Trim());
 
             chatMessage.text = "";
         }
